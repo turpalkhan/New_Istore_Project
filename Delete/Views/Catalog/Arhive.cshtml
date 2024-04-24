@@ -1,0 +1,58 @@
+﻿@using Delete.ClassLibrary1;
+@model IEnumerable<ArhivPhone>;
+@{
+    ViewData["Title"] = "Архив";
+
+}
+
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a asp-controller="Autification" asp-action="Registration" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a asp-controller="Home" asp-action="Index" class="Logotip">IStorE</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="CreatePhone" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Добавить смартфон</a>
+    <a hidden="@(User.IsInRole($"{Role.Пользователь.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="FavoritePage" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Корзина</a>
+</div>
+
+<div class="Menu">
+    <a class="ButtonL">Новости</a>
+    <a class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<p style="font-size: 60px; text-align:center; font-weight: 400;margin-top:20px; font-family: Arial">Архив</p>
+
+<div style="display:flex; border: none;">
+
+    
+    <div style="background: white; width: 100%; height: 100%; display:flex; flex-wrap:wrap;  justify-content: flex-start;">
+        @if (Model.Count() < 1)
+        {
+            <h1 class="display-4 text-center" style="text-align:center">Смартфонов на данный момент нету</h1>
+        }
+
+
+        @foreach (var item in Model)
+        {
+
+            <div class="col" style="text-align: center; width: 30%; margin-top:10px;">
+
+                @if (item.Image != null)
+                {
+                    <img style="text-align: center; margin-left: auto; width: 270px; height:350px; margin-right: auto;" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                }
+                <h3 class="col-10" style="margin-left: auto; margin-right:auto; margin-top:10px;"><span>Модель: </span>@item.Name</h3>
+                <p style="text-align: center; margin-top: 20px; text-align: center; margin-top: 20px; margin-left: auto; margin-right: auto;">@item.Gb</p>
+                <p><span>Цвет: </span>@item.Baground</p>
+                <p><span>Цена: </span>@item.Sale<span> Руб.</span></p>
+                <p>@item.VNalichie</p>
+                @*<a class="ButtonC" asp-controller="Catalog" asp-action="EditPhone" asp-area="" style="font-size: 15px;">Редактировать</a>*@
+
+                <div style="display: grid">
+                    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" class="ButtonC" asp-action="Vostanovlenie" asp-controller="Catalog" asp-route-id="@item.Id">Восстановить в Каталог</a>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

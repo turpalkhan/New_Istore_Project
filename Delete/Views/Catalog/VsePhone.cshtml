@@ -1,0 +1,222 @@
+﻿@using Delete.ClassLibrary1;
+@model IEnumerable<Phone>;
+@{
+    ViewData["Title"] = "Новости";
+
+}
+
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a hidden="@(User.Identity.IsAuthenticated ? true : false)" asp-controller="Autification" asp-action="Registration" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a hidden="@(User.Identity.IsAuthenticated ? false : true)" asp-controller="Autification" asp-action="Account" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a asp-controller="Home" asp-action="Index" class="Logotip">IStorE</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="CreatePhone" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Добавить смартфон</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="Arhive" class="ButtonL" style="left: 111px; font-size: 15px; top: 150px;">Arhive</a>
+    <a hidden="@(User.IsInRole($"{Role.Пользователь.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="FavoritePage" class="ButtonL" style="left: 111px; font-size: 15px; top: 130px;">Корзина</a>
+</div>
+
+<div class="Menu">
+    <a asp-controller="Newses" asp-action="VseNews" class="ButtonL">Новости</a>
+    <a asp-controller="Catalog" asp-action="VsePhone" class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<p style="font-size: 60px; text-align:center; font-weight: 400;margin-top:20px; font-family: Arial">Каталог</p>
+
+<div style="display:flex; border: none;" >
+
+    @*<div style="background:white; height:100px; width: 260px; border: 0.5px;">
+        <h4 style="text-align:center">Фильтр</h4>
+      
+    </div>*@
+
+    <div style="background: white; width: 100%; height: 100%; display:flex; flex-wrap:wrap;  justify-content: flex-start;">
+        @if (Model.Count() < 1)
+        {
+            <h1 class="display-4 text-center" style="text-align:center">Смартфонов на данный момент нету</h1>
+        }
+
+
+
+
+        <form method="post" asp-controller="Catalog" asp-action="VsePhone" >
+            <h4 style="text-align: center; margin-top: -10px;">Фильтр</h4>
+          <div style="background-color: white; height: 100%; width: 264px; justify-content:center; justify-items:center; border: 1px  black solid ">
+             @* <h4 style="text-align: center">Фильтр</h4>*@
+            <div style="text-align:center;margin-top: 5px;">
+                <p style="font-size: 17px; color:black; font-weight: bold">Модель:</p>
+
+                    <div style="margin-top: -5px">
+                        <input id="name" name="name" type="checkbox" value="iPhone 14 Pro" />
+                        <span>iPhone 14 Pro</span>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="checkbox" value="iPhone 14" />
+                        <span>iPhone 14</span>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="checkbox" value="iPhone 13 Pro" />
+                        <span>iPhone 11 Pro</span>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="checkbox" value="iPhone 13" />
+                        <span>iPhone 13</span>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="checkbox" value="iPhone 12 Pro" />
+                        <span>iPhone 12 Pro</span>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="checkbox" value="iPhone 12" />
+                        <span>iPhone 12</span>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="checkbox" value="iPhone 11 Pro" />
+                        <span>iPhone 11 Pro</span>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="checkbox" value="iPhone 11" />
+                        <span>iPhone 11</span>
+                    </div>
+
+
+
+
+
+                     <p style="font-size: 17px; color:black; margin-top:10px; font-weight:bold">Цвет:</p>
+                    
+                     <div style="margin-top: -10px;">
+                      <input id="baground" name="baground" type="checkbox" value="Синий" />
+				      <span>Синий</span>
+                     </div>
+                    
+                    
+                     <div>
+				      <input id="baground" name="baground" type="checkbox" value="Зелёный" />
+				      <span>Зелёный</span>
+                     </div>
+                    
+                     <div>
+				      <input id="baground" name="baground" type="checkbox" value="Красный" />
+				      <span>Красный</span>
+                     </div>
+                    
+                    
+                     <div>
+                      <input id="baground" name="baground" type="checkbox" value="Фиолетовый" />
+                      <span>Фиолетовый</span>
+                     </div>
+                    
+                    
+                     <div>
+                      <input id="baground" name="baground" type="checkbox" value="Серый" />
+                      <span>Серый</span>
+                     </div>
+                    
+                    
+                     <div>
+                      <input id="baground" name="baground" type="checkbox" value="Белый" />
+                      <span>Белый</span>
+                     </div>
+                    
+                     <div>
+                      <input id="baground" name="baground" type="checkbox" value="Чёрный" />
+                      <span>Чёрный</span>
+                     </div>
+                    
+                     <div>
+                      <input id="baground" name="baground" type="checkbox" value="Розовый" />
+                      <span>Розовый</span>
+                     </div>
+
+
+                    <p style="font-size: 17px; color:black; margin-top:10px; font-weight:bold">Память:</p>
+
+                    <div> 
+                        <input id="gb" name="gb" type="checkbox" value="1 Tb" />
+                        <span>1 Tb</span>
+                    </div>
+                   
+                    <div>
+                        <input id="gb" name="gb" type="checkbox" value="512 Gb" />
+                        <span>512 Gb</span>
+                    </div>
+                   
+                     <div>
+                         <input id="name" name="name" type="checkbox" value="128 Gb" />
+                         <span>128 Gb</span>
+                     </div>
+                   
+                     <div>
+                         <input id="name" name="name" type="checkbox" value="64 Gb" />
+                         <span>64 Gb</span>
+                     </div>
+                      
+
+
+                <input type="submit" value="Отправить" class="btn btn-info"/>
+            </div>
+          </div>
+
+        </form>
+      
+
+        @foreach(var item in Model)
+        {
+
+            <div class="col" style="text-align: center; width: 30%; margin-top:10px;">
+                 
+                    @if (item.Image != null)
+                    {
+                        <img style="text-align: center; margin-left: auto; width: 270px; height:350px; margin-right: auto;" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                    }
+                <h3 class="col-10" style="margin-left: auto; margin-right:auto; margin-top:10px;"><span>Модель: </span>@item.Name</h3>
+                    <p style="text-align: center; margin-top: 20px; text-align: center; margin-top: 20px; margin-left: auto; margin-right: auto;">@item.Gb</p>
+                <p><span>Цвет: </span>@item.Baground</p>
+                <p><span>Цена: </span>@item.Sale<span> Руб.</span></p>
+                <p><span>Цена: </span>@item.Amount<span> Кол-во</span></p>
+                    <p>@item.VNalichie</p>
+                    @*<a class="ButtonC" asp-controller="Catalog" asp-action="EditPhone" asp-area="" style="font-size: 15px;">Редактировать</a>*@
+
+                     <div style="display: grid">
+                       <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="EditPhone" asp-route-id="@item.Id" class="ButtonC" style="font-size: 15px">Редактировать</a>
+                       <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="DeletePhone" asp-route-id="@item.Id" class="ButtonC" style="font-size: 15px">Удалить</a>
+                       <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="ArhivPhone" asp-route-id="@item.Id" class="ButtonC" style="font-size: 15px">Добавить в Архив</a>
+                    
+                    
+                       <a hidden="@(User.IsInRole($"{Role.Пользователь.ToString()}") ? false : true)" class="ButtonC" asp-action="AddFavorite" asp-controller="Catalog" asp-route-id="@item.Id">Купить</a>
+                     </div>
+            </div>
+        }
+    </div>
+    
+</div>
+
+
+
+@* <select  style="margin-top: 10px;">
+                    <option value="iPhone">iPhone</option>
+                    <option value="iPhone 4">iPhone </option>
+                    <option value="iPhone 5">iPhone 5</option>
+                    <option value="iPhone 6">iPhone 6</option>
+                    <option value="iPhone 6s">iPhone 6s</option>
+                    <option value="iPhone 7">iPhone 7</option>
+                    <option value="iPhone X">iPhone X</option>
+                    <option value="iPhone 11">iPhone 11</option>
+                    <option value="iPhone 11 Pro">iPhone 11 Pro</option>
+                    <option value="iPhone 12">iPhone 12</option>
+                    <option value="iPhone 12 Pro">iPhone 12 Pro</option>
+                    <option value="iPhone 13">iPhone 13</option>
+                    <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+                    <option value="iPhone 14">iPhone 14</option>
+                    <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+                </select>
+            *@

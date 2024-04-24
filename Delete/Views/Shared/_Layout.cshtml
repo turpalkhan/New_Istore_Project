@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IStorE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IStorE.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+       
+    </header>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   
+    <footer style="background: #DEDEDE; border: 0px;">
+        <div class="PopulS">
+            <div class="Finish1">
+                <p class="InfS">Номера для связи:</p>
+                <p class="InfS1">+79371325699</p>
+                <p class="InfS1">+79371325755</p>
+                <p class="InfS1">+79371757575</p>
+            </div>
+
+            <div class="Dsds">
+                <p class="Ggg">IStorE</p>
+@*                <img class="Kkk" src="/Image/Group 21 (1).png">*@
+                <p class="Nnn">OOO «IStorE»</p>
+            </div>
+
+            <div class="Finish2">
+				<p class="Inf2">Номера для справки:</p>
+                <p class="InfS">+79371549345</p>
+                <p class="InfS">+79371774485</p>
+                <p class="InfS">+79371325699</p>
+            </div>
+
+        </div>
+
+        @* <div class="container">
+            &copy; 2023 - IStorE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>*@
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

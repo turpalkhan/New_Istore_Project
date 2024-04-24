@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Delete.ClassLibrary1.Models.User>;
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a hidden="@(User.Identity.IsAuthenticated ? true : false)" asp-controller="Autification" asp-action="Registration" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a hidden="@(User.Identity.IsAuthenticated ? false : true)" asp-controller="Autification" asp-action="Account" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <h1 class="Logotip">IStorE</h1>
+
+</div>
+
+<div class="Menu">
+    <a asp-controller="Newses" asp-action="VseNews" class="ButtonL">Новости</a>
+    <a asp-controller="Catalog" asp-action="VsePhone" class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<form>
+	@foreach (var item in Model)
+	{
+
+        <h2 style="text-align: center; margin-top: 46px;">Аккаунт</h2>
+
+        <div style="display: flex; text-align:center; justify-content: center; margin-top: 10px;">
+            <p style="font-size: 30px;">Имя: </p>
+            <p style="font-size: 30px; padding-left: 10px">@item.Name</p>
+        </div>
+
+        <div style="display: flex; text-align:center; justify-content: center; margin-top: 10px;">
+            <p style="font-size: 30px;">Фамилия: </p>
+            <p style="font-size: 30px; padding-left: 10px">@item.Surname</p>
+        </div>
+
+        <div style="display: flex; text-align:center; justify-content: center; margin-top: 10px;">
+            <p style="font-size: 30px;">Email: </p>
+            <p style="font-size: 30px; padding-left: 10px">@item.Email</p>
+        </div>
+
+        <button asp-controller="Autification" asp-action="Logout" style="text-align: center; margin-left: 735px;" class="btn btn-danger">Выйти из Аккаунта</button>
+  
+    }
+</form>

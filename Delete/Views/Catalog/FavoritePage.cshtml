@@ -1,0 +1,67 @@
+﻿@using Delete.ClassLibrary1;
+@using Delete.ClassLibrary1.Models;
+
+@model IEnumerable<Favorite>;
+
+@{
+	ViewData["Title"] = "Favorite";
+}
+
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a asp-controller="Autification" asp-action="Registration" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a asp-controller="Home" asp-action="Index" class="Logotip">IStorE</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="CreatePhone" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Добавить смартфон</a>
+    <a hidden="@(User.IsInRole($"{Role.Пользователь.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="FavoritePage" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Корзина</a>
+</div>
+
+<div class="Menu">
+    <a asp-controller="Newses" asp-action="VseNews" class="ButtonL">Новости</a>
+    <a asp-controller="Catalog" asp-action="VsePhone" class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<p style="font-size: 60px; text-align:center; font-weight: 400;margin-top:20px; font-family: Arial">Корзина</p>
+
+<div style="display:flex; border: none;">
+
+    <div style="background: white; width: 100%; height: 100%; display:flex; flex-wrap:wrap;  justify-content: flex-start;">
+        @if (Model.Count() < 1)
+        {
+            <h1 class="display-4 text-center" style="text-align:center; margin-left:auto; margin-right: auto;">На данный момент Заказов нет</h1>
+        }
+     <form method="post" asp-controller="Catalog" asp-action="Zakaz" >
+       <div style=" display:flex; flex-wrap:wrap;  justify-content: flex-start;">
+         @foreach (var item in Model)
+         {
+             <div class="col" style="text-align: center; width: 100%; margin-top:10px; margin-left:10px; margin-right: 10px;border: solid 1px black; margin-left:auto;">
+         
+                 <input id="id" name="id" type="checkbox" value="@item.Id"  />
+                 <h3 class="align-content-center">Заказ</h3>
+         
+                 <img style="text-align: center; margin-left: auto; width: 270px; height:350px; margin-right: auto;" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                     
+                 <p class="col-10" style="margin-left: auto; margin-right:auto; margin-top:20px;"><span>Модель: </span>@item.Name</p>
+                 <p style="text-align: center; margin-top: 20px; text-align: center; margin-top: 20px; margin-left: auto; margin-right: auto;">@item.Gb</p>
+                 <p><span>Цвет: </span>@item.Baground</p>
+                 <p><span>Цена: </span>@item.Sale<span> Руб.</span></p>
+
+                 <input type="number" style="text-align: center; width: 60%;" asp-for="@item.Amount" name="amount[@item.Id]" min="1" />
+
+                 <div>
+                            <a asp-controller="Catalog" asp-action="DeleteThis" class="btn btn-danger" asp-route-id="@item.Id">Удалить</a>
+                 </div>
+             
+             </div>
+         }
+       </div>
+          @*  <input type="submit"  class="btn btn-info" id="id" name="id" style="background: green; height:20px; width:30px">Оформить</input>*@
+        
+          <input type="submit" value="Отправить" class="btn btn-info"/>
+    
+     </form>
+    </div>
+
+</div>
+

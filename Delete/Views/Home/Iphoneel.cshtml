@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a hidden="@(User.Identity.IsAuthenticated ? true : false)" asp-controller="Autification" asp-action="Registration" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a hidden="@(User.Identity.IsAuthenticated ? false : true)" asp-controller="Autification" asp-action="Account" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <h1 class="Logotip">IStorE</h1>
+
+</div>
+
+<div class="Menu">
+    <a asp-controller="Newses" asp-action="VseNews" class="ButtonL">Новости</a>
+    <a asp-controller="Catalog" asp-action="VsePhone" class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<div class="center">
+    <h1 style="text-align:center; margin-top: 23px;">Самый популярный смартфон</h1>
+    <img style="margin-top: 50px; margin-left: 339px; width: 760px;" src="~/Image/ii.jpg"><img>
+    <p style="text-align:center; margin-top: 30px">iPhone 11 был представлен в 2019, в этот раз Apple прилично изменили дизайн смартфона в отличии X/XS.</p>
+    <p style="text-align:center;">Данный смартфон на сегодянщний день является одним из самых популярных смартфонов в мире.</p>
+    <p style="text-align:center;">Их было продано около 37 миллионов штук. Данная модель стала такой востребованной связи с хорошим </p>
+    <p style ="text-align:center;">показателем уровня батареи.</p>
+</div>

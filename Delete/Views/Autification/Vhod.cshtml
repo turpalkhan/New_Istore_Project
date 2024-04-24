@@ -1,0 +1,30 @@
+﻿@using Delete.ClassLibrary1;
+@model VhodModels;
+
+<form asp-action="Vhod" asp-controller="Autification" asp-antiforgery="true">
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <button style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></button>
+    <a asp-controller="Home" asp-action="Index" class="Logotip">IStorE</a>
+</div>
+
+
+<div class="Poloska"></div>
+
+<p style="font-size: 60px; text-align:center; font-weight: 400;margin-top:50px;">Вход</p>
+    <div <div asp-validation-summary="ModelOnly" style="color:red; margin-left: 591px"></div>
+<div class="text-center">
+    <input placeholder="Логин" asp-for="Login" class="Pole" type="text"/>
+</div>
+<div class="text-center">
+    <input placeholder="Пароль" asp-for="Password" class="Pole" type="password"/>
+</div>
+
+<div class="text-center">
+    <button type="submit" value="Войти" class="OK">OK</button>
+</div>
+
+<div class="text-center" style="margin-top: 25px;">
+    <a asp-controller="Autification" asp-action="Registration" class="Ac">Нет Аккаунта</a>
+</div>
+</form>
+

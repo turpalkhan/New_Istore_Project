@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a hidden="@(User.Identity.IsAuthenticated ? true : false)" asp-controller="Autification" asp-action="Registration" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a hidden="@(User.Identity.IsAuthenticated ? false : true)" asp-controller="Autification" asp-action="Account" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <h1 class="Logotip">IStorE</h1>
+    <a hidden="@(User.IsInRole($"{Role.Пользователь.ToString()}") ? false : true)" asp-controller="Home" asp-action="MoyPokupki" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Мои Заказы</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Home" asp-action="Zakazy" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Заказы</a>
+
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="Arhive" class="ButtonL" style="left: 111px; font-size: 15px; top: 150px;">Архив</a>
+</div>
+
+<div class="Menu">
+    <a asp-controller="Newses" asp-action="VseNews" class="ButtonL">Новости</a>
+    <a asp-controller="Catalog" asp-action="VsePhone"  class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<div class="Okno" >
+    <img class="Gimg" src="Image/image 4.png"/>
+</div>
+
+<p style="font-size: 50px; font-weight: bold; text-align:center; margin-top:200px;">Самые популярные устройства</p>
+    
+<div class="Popul">
+    <div class="PL">
+        <img src="~/Image/image 5 (3).png"/>
+        <p style="font-weight: normal; font-size:20px; padding-top: 15px;">iPhone 11</p>
+        <a asp-controller="Home" asp-action="Iphoneel" style="text-decoration: none; color: black; margin-left: 35px;" class="Button">Подробнее</a>
+    </div>
+
+    <div class="PC">
+        <img src="~/Image/image 8 (1).png"/>
+        <p style="font-weight: normal; font-size:20px; font-size: 20px; padding-left: 96px; padding-top: 15px;">iPhone 13</p>
+        <a style="text-decoration: none; color: black; margin-left: 97px;" class="Button">Подробнее</a>
+    </div>
+
+    <div class="PR">
+        <img src="~/Image/image 12 (1).png"/>
+        <p style="font-weight: normal; font-size:20px;">iPhone 14 Pro</p>
+        <a style="text-decoration: none; color: black; margin-left: 50px;" class="Button">Подробнее</a>
+    </div>
+</div>
+
+<p style="font-size: 50px; font-weight: bold; text-align:center; margin-top:200px;">Устройства из категории Ретро</p>
+
+<div class="Popul">
+
+    <div class="PL">
+        <img style="margin-top: 19px;"src="~/Image/image 10.png" />
+        <p style="font-weight: normal; font-size:20px; padding-top: 15px;">iPhone</p>
+        <a style="text-decoration: none; color: black; margin-left: 50px;" class="Button">Подробнее</a>
+    </div>
+
+    <div class="PC">
+        <img src="~/Image/image 9.png" style="padding-left: 58px; margin-top: -10px;" />
+        <p style="font-weight: normal; font-size:20px; font-weight: bold; font-size: 20px; padding-left: 108px;  padding-top: 15px;">iPhone 5</p>
+        <a asp-controller="Home" asp-action="IphoneP" style="text-decoration: none; color: black; margin-left: 104px; " class="ButtonS">Подробнее</a>
+    </div>
+
+    <div class="PR">
+        <img style="margin-top: 32px;" src="~/Image/a43c43ea-b240-453d-8775-4b56d76a53c5 1.png" />
+        <p style="font-weight: normal; font-size:20px; padding-top: 20px;">iPhone 4</p>
+        <a style="text-decoration: none; color: black; margin-left: 50px;" class="Button">Подробнее</a>
+    </div>
+
+</div>

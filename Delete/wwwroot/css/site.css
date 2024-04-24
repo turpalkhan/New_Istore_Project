@@ -1,0 +1,309 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/*body {
+  margin-bottom: 60px;
+}*/
+
+.Logotip {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 70px;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    color: black
+}
+
+    .Logotip:active,
+    .Logotip:hover {
+        color: black;
+    }
+
+.ButtonL {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
+    background-color: white;
+    border: none;
+    position: absolute;
+    left: 313px;
+    text-decoration: none;
+    color: black
+}
+
+    .ButtonL:active,
+    .ButtonL:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.ButtonC {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    color: black
+}
+
+    .ButtonC:active,
+    .ButtonC:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.ButtonR {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
+    background-color: white;
+    border: none;
+    position: absolute;
+    right: 335px;
+    text-decoration: none;
+    color: black
+}
+
+    .ButtonR:active,
+    .ButtonR:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.Menu {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.Poloska {
+    margin-top: 30px;
+    background: black;
+    height: 1.5px;
+    width: 100%;
+    min-width: 100%;
+    left: 0;
+}
+
+.Gimg {
+    height: 500px;
+    width: 1000px;
+    margin: auto;
+}
+
+.GimgS {
+    height: 550px;
+    width: 1000px;
+    margin: auto;
+}
+
+.Okno {
+    display: flex;
+    margin-top: 20px;
+}
+
+.Popul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.PL {
+    position: absolute;
+    left: 177px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+}
+
+.PC {
+    position: absolute;
+    left: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PR {
+    position: absolute;
+    right: 130px;
+    margin-top: -16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Button {
+    height: 40px;
+    width: 130px;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: white;
+}
+
+.ButtonS {
+    height: 40px;
+    width: 130px;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: white;
+    margin-left: 84px;
+}
+
+/**/
+
+
+.Futter {
+    height: 350px;
+    background: #DEDEDE;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Inf {
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.Inf2 {
+    font-size: 20px;
+}
+
+.InfS {
+    font-size: 20px;
+    text-align: center;
+}
+
+.InfS1 {
+    font-size: 20px;
+}
+
+.Kkk {
+    width: 200px;
+    display: block;
+    margin-top: 45px;
+}
+
+
+
+.Ggg {
+    text-align: center;
+    font-size: 40px;
+}
+
+.Dsds {
+    margin-top: 35px;
+    margin-left: 117px;
+    margin-right: 92px;
+    text-align: center;
+}
+
+.Finish1 {
+    margin-top: 98px;
+    text-align: center;
+    margin-left: 32px;
+}
+
+.Finish2 {
+    margin-top: 97px;
+    text-align: center;
+}
+
+.Nnn {
+    font-size: 15px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.PopulS {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.Kkk {
+    align-items: center;
+}
+
+.Pole {
+    border: none;
+    font-size: 25px;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    color: black;
+    outline: none;
+    align-items: center;
+    margin-top: 70px;
+    width: 600px;
+}
+
+.Ac {
+    border: none;
+    font-size: 20px;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    color: black;
+    outline: none;
+    align-items: center;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+    .Ac:active,
+    .Ac:hover {
+        margin-top: 30px;
+        color: black;
+    }
+
+
+.OK {
+    font-size: 20px;
+    color: black;
+    align-items: center;
+    border-radius: 30px;
+    width: 100px;
+    background-color: white;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+    .OK:active,
+    .OK:hover {
+        font-size: 20px;
+        color: black;
+        align-items: center;
+        border-radius: 30px;
+        width: 100px;
+        background-color: white;
+        font-weight: bold;
+        margin-top: 25px;
+    }

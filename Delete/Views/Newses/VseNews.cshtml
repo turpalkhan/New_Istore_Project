@@ -1,0 +1,47 @@
+﻿@using Delete.ClassLibrary1;
+@model IEnumerable<News>;
+@{
+    ViewData["Title"] = "Новости";
+
+}
+
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a asp-controller="Autification" asp-action="Registration" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a asp-controller="Home" asp-action="Index" class="Logotip">IStorE</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Newses" asp-action="CreateNews" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Добавить Новость</a>
+</div>
+
+<div class="Menu">
+    <a class="ButtonL">Новости</a>
+    <a class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<div>
+    @if (Model.Count() < 1)
+    {
+        <h1 class="display-4 text-center" style="text-align:center;  margin-top: 87px;">Новостей на данный момент нету</h1>
+        <div style="height: 700px;"></div>
+    }
+
+   
+      
+
+    @foreach (var item in Model)
+    {
+        <div class="row" style="margin-top: 30px;">
+            <div class="row" style="text-align: center;">
+                @if (item.Image != null)
+                {
+                    <img style="text-align: center; margin-left: auto; width: 501px; height:300px; margin-right: auto;" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                }
+                <h3 class="col-10" style="margin-left: auto; margin-right:auto; margin-top:10px;">@item.Name</h3>
+                <p style="text-align: center; margin-top: 20px; text-align: center; margin-top: 20px; width: 725px; margin-left: auto; margin-right: auto;">@item.Description</p>
+               @* <p>@item.Date</p>*@
+                <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Newses" asp-action="DeleteNews" asp-route-id="@item.Id" class="ButtonC" style="font-size: 15px">Удалить</a>
+            </div>
+        </div>
+    }
+</div>

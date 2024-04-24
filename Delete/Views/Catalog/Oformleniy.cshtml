@@ -1,0 +1,46 @@
+﻿<div style="margin-top: 50px; display:flex;" class="text-center">
+	<a hidden="@(User.Identity.IsAuthenticated ? true : false)" asp-controller="Autification" asp-action="Registration" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+	<a hidden="@(User.Identity.IsAuthenticated ? false : true)" asp-controller="Autification" asp-action="Account" asp-area="" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+	<h1 class="Logotip">IStorE</h1>
+
+</div>
+
+<div class="Menu">
+	<a asp-controller="Newses" asp-action="VseNews" class="ButtonL">Новости</a>
+	<a asp-controller="Catalog" asp-action="VsePhone" class="ButtonC">Каталог</a>
+	<a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<p style="font-size: 50px; font-weight: bold; text-align:center; margin-top:30px;">Оформление заказа</p>
+
+<div style="margin-top: 40px; text-align:center;">
+	<label style="font-size:30px;">Банк</label>
+	<select style="margin-top: 10px;">
+		<option value="В наличии">Сберабанк</option>
+		<option value="Не наличиии">Тинькофф</option>
+		<option value="Скоро в продаже">ВТБ Банк</option>
+		<option value="Скоро в продаже">РосСельхозБанк</option>
+	</select>
+
+
+<div class="form-group" style="margin-top:25px;">
+		<label class="control-label" style="font-weight:bold">Номер карты</label>
+		<input style=" margin-top: 10px; width: 514px; text-align: center; margin-left: auto; margin-right: auto;" type="text" class="form-control" />
+</div>
+
+<div class="form-group" style="margin-top: 15px;">
+		<label class="control-label" style="font-weight:bold">Город</label>
+		<input style="margin-top: 10px; width: 514px; text-align: center; margin-left: auto; margin-right: auto; type="text" class="form-control" />
+</div>
+
+<div class="form-group" style="margin-top: 15px;">
+	<label class="control-label" style="font-weight:bold">Улица</label>
+	<input style="margin-top: 10px; width: 514px; text-align: center; margin-left: auto; margin-right: auto; type="text" class="form-control" />
+</div>
+
+<div class="text-center" style="margin-top: 10px;">
+    <a asp-controller="Catalog" asp-action="Finish" style="font-size; font-weight:normal; padding-top: 1px;" class="ButtonC">OK</a>
+</div>
+</div>

@@ -1,0 +1,77 @@
+﻿@using Delete.ClassLibrary1;
+@using Delete.ClassLibrary1.Models;
+@*
+@model dynamic;*@
+@model IEnumerable<Zakaz>;
+@*@model Zakaz;*@
+
+@{
+    ViewData["Title"] = "Новости";
+
+}
+
+<div style="margin-top: 50px; display:flex;" class="text-center">
+    <a asp-controller="Autification" asp-action="Registration" style="position: absolute; margin-left: 85%; background: white; border: 0px"><img src="~/Image/pngwing 1 (1).png" /></a>
+    <a asp-controller="Home" asp-action="Index" class="Logotip">IStorE</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="CreatePhone" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Добавить смартфон</a>
+    <a hidden="@(User.IsInRole($"{Role.Адининстратор.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="Arhive" class="ButtonL" style="left: 111px; font-size: 15px; top: 90px;">Arhive</a>
+    <a hidden="@(User.IsInRole($"{Role.Пользователь.ToString()}") ? false : true)" asp-controller="Catalog" asp-action="FavoritePage" class="ButtonL" style="left: 111px; font-size: 15px; top: 130px;">Корзина</a>
+</div>
+
+<div class="Menu">
+    <a class="ButtonL">Новости</a>
+    <a class="ButtonC">Каталог</a>
+    <a asp-controller="Home" asp-action="ONas" class="ButtonR">О нас</a>
+</div>
+
+<div class="Poloska"></div>
+
+<p style="font-size: 60px; text-align:center; font-weight: 400;margin-top:20px; font-family: Arial">Мои Покупки</p>
+
+<div style="display:flex; border: none;">
+
+    
+    <div style="background: white; width: 100%; height: 100%; display:flex; flex-wrap:wrap;  justify-content: flex-start;">
+        @if (Model.Count() == 0)
+        {
+            <h1 class="display-4 text-center" style="text-align:center; margin-left: 430px; margin-top: 87px;">
+                Покупок на данный момент нету
+            </h1>
+            <div style="height: 700px;"></div>
+        }
+
+
+
+
+        
+      <div>
+            @foreach (var item in Model)
+            {
+               
+                <div  class="col" style="text-align: center; width: 257%; margin-top:10px; display: grid; border: 1px solid black">
+                    <h3 style="text-align: center;">Заказ № @item.Number</h3>
+                    @foreach (var item_pokupka in item.Pokupkas)
+                    {
+                       <div style="display: inline-block; margin-top:5%;">
+                            @if (item_pokupka.Image != null)
+                            {
+                                <img style="text-align: center; margin-left: auto; margin-right: auto; width: 270px; height:350px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(item_pokupka.Image))" />
+                            }
+                          <div style="display: inline-block; margin-left: 9%;">
+                             <h3 class="col-10" style="margin-left: auto; margin-right:auto; margin-top:10px; width: 100%;"><span>Модель: </span>@item_pokupka.Name</h3>
+                                <p style="text-align: center; margin-top: 20px; text-align: center; margin-top: 20px; margin-left: auto; margin-right: auto; font-size: 20px;"><span style="font-size: 20px; font-weight: normal">Память: </span>@item_pokupka.Gb</p>
+                                <p style="font-size: 20px; "><span style="font-size: 20px; font-weight: bold;">Цвет: </span>@item_pokupka.Baground</p>
+                                <p style="font-size: 20px; "><span style="font-size: 20px; font-weight: bold;">Цена: </span>@item_pokupka.Sale<span> Руб.</span></p>
+                                <p style="font-size: 20px; "><span style="font-size: 20px; font-weight: bold;">Кол-во: </span>@item_pokupka.Amount</p>
+                          </div>
+                       </div>
+                    }
+                    <p style="margin-top: 5px;"><span>Колличество наименований </span>@item.Pokupkas.Count()</p>
+                </div>
+                  
+            }
+        </div>
+
+    </div>
+
+</div>

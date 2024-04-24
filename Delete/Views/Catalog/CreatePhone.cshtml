@@ -1,0 +1,87 @@
+﻿@using Delete.ClassLibrary1;
+@model Phone;
+@{
+	ViewData["Title"] = "Добавление Смартфона";
+}
+<h1>Добавление Смартфона</h1>
+<br />
+<form asp-action="CreatePhone" asp-controller="Catalog" enctype="multipart/form-data">
+
+
+	<div class="form-group">
+		<label asp-for=Image class="control-label">Фото</label>
+		<p>
+			<input name="Image" type="file" class="form-control" />
+		</p>
+	</div>
+	<div class="form-group">
+		<label asp-for=Name class="control-label">Название</label>
+		<select asp-for="Name" style="margin-top: 10px;">
+			<option value="iPhone">iPhone</option>
+			<option value="iPhone 5">iPhone 5</option>
+			<option value="iPhone 6">iPhone 6</option>
+			<option value="iPhone 6s">iPhone 6s</option>
+			<option value="iPhone 7">iPhone 7</option>
+			<option value="iPhone X">iPhone X</option>
+			<option value="iPhone 11">iPhone 11</option>
+			<option value="iPhone 11 Pro">iPhone 11 Pro</option>
+			<option value="iPhone 12">iPhone 12</option>
+			<option value="iPhone 12 Pro">iPhone 12 Pro</option>
+			<option value="iPhone 13">iPhone 13</option>
+			<option value="iPhone 13 Pro">iPhone 13 Pro</option>
+			<option value="iPhone 14">iPhone 14</option>
+			<option value="iPhone 14 Pro">iPhone 14 Pro</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Gb" class="control-label">Память</label>
+		<select asp-for="Gb" style="margin-top: 10px;">
+			<option value="16 Gb">16 Gb</option>
+			<option value="32 Gb">32 Gb</option>
+			<option value="64 Gb">64 Gb</option>
+			<option value="128 Gb">128 Gb</option>
+			<option value="256 Gb">256 Gb</option>
+			<option value="512 Gb">512 Gb</option>
+			<option value="1 TB">1 TB</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Baground" class="control-label">Цвет</label>
+@*		<input type="text" asp-for="Baground" class="form-control" />*@
+
+		@*<label asp-for="Baground">В наличии</label>*@
+		<select asp-for="Baground" style="margin-top: 10px;">
+			<option value="Белый">Белый</option>
+			<option value="Чёрный">Чёрный</option>
+			<option value="Золотой">Золотой</option>
+			<option value="Желтый">Желтый</option>
+			<option value="Синий">Синий</option>
+			<option value="Зелёный">Зелёный</option>
+			<option value="Cерый">Cерый</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="Sale" class="control-label">Цена</label>
+		<input ype="text" tasp-for="Sale" class="form-control" />
+	</div>
+
+	<div>
+		<label asp-for="VNalichie">В наличии</label>
+		<select asp-for="VNalichie" style="margin-top: 10px;">
+			<option value="В наличии">В наличии</option>
+			<option value="Не наличиии">Не наличиии</option>
+			<option value="Скоро в продаже">Скоро в продаже</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label asp-for="Amount" class="control-label">Колличсетво</label>
+		<input type="text" asp-for="Amount" class="form-control" />
+	</div>
+
+	<div class="form-group" style="margin-top:10px">
+		<input type="submit" value="Отправить" class="btn btn-info" />
+	</div>
+</form>
